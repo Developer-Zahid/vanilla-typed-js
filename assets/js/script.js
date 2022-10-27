@@ -57,13 +57,3 @@ getBtn.addEventListener("click", function(){
         typeJs();
     }, animationDuration * 1000)
 })
-
-
-//=========Hide the Inspect tool js=========//
-document.onkeydown = (e)=>{
-    const inspectTool = e.charCode || e.keyCode;
-    if(inspectTool == 123 || inspectTool == 85 || inspectTool == 83 || inspectTool == 73 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.shiftKey && e.keyCode == 74)){
-        e.preventDefault();
-    }
-}
-//==================//
