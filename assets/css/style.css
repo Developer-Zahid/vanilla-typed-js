@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap');
+
+:root{
+    --font-primary: 'Original Surfer', cursive;
+    --color-text: #FF6464;
+    --color-bg: #F8FFDB;
+}
+
+*,
+*::before,
+*::after
+{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    font-family: var(--font-primary);
+}
+
+html,
+body{
+    width: 100%;
+    height: 100%;
+}
+
+html{
+    font-size: clamp(6px, 1vw, 10px);
+}
+
+body{
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    padding: 15px;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow: hidden;
+}
+
+.get-box{
+    text-align: center;
+}
+
+.get-input{
+    text-align: center;
+    width: 100%;
+    max-width: 50rem;
+    font-size: 1.8em;
+    font-weight: 700;
+    padding: 1em;
+    border: 1px solid var(--color-text);
+    border-radius: 0.7em;
+    margin-bottom: 1em;
+}
+
+.get-btn{
+    font-size: 2em;
+    color: var(--color-bg);
+    padding: 1em 2em;
+    background-color: var(--color-text);
+    border: 0;
+    border-radius: 50em;
+    cursor: pointer;
+}
+
+.typed{
+	font-size: 5rem;
+    font-weight: 700;
+    transition: all .3 linear;
+    transform-style: preserve-3d;
+    preservative: 100rem;
+}
+
+@media (max-width: 767.98px) {
+    .typed{
+        line-height: 1.5;
+    }
+}
+
+@media (min-width: 768px) {
+    .typed{
+        line-height: 1.1;
+    }
+}
+
+.typed:empty{
+    display: none;
+}
+
+.eachCharacter{
+    display: inline-block;
+}
+
+.eachCharacter--empty{
+    padding-left: 10px;
+}
+
+.slideIn:last-child,
+.slideOut:last-child
+{
+    transform-style: preserve-3d;
+}
+
+.slideIn,
+.slideOut
+{
+    position: relative;
+}
+
+.slideIn:last-child::before,
+.slideOut:last-child::before
+{
+    position: absolute;
+    user-select: none;
+    pointer-events: none
+}
+
+.slideIn:last-child::before{
+    content: url(../images/parachute.png);
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slideIn:last-child{
+	transform-origin: center bottom;
+	transform: translateY(-100%) rotate(10deg);
+	animation: slideIn calc(var(--animation-duration, 1) * 1s) linear forwards;
+}
+
+@keyframes slideIn{
+    0%{
+        transform: translateY(-100%) rotate(10deg);
+    }
+    100%{
+        transform: translateY(0) rotate(0);
+    }
+}
+
+.slideOut:last-child::before{
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background-image: url(../images/fire.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.slideOut:last-child{
+	transform-origin: center bottom;
+    transform: scale(1);
+	animation: slideOut calc(var(--animation-duration, 1) * 2s) linear forwards;
+}
+
+@keyframes slideOut{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
